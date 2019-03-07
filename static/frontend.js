@@ -1,4 +1,8 @@
-$( function(){
+$(function(){
+    
+
+
+
     var start = $.now()
     
     $(document).on('keypress',function(e) {

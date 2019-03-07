@@ -4,11 +4,19 @@ var path = require('path');
 const getQuestions = require('./dummyDb.js');
 const answer = require('./answer.js');
 
+app.use(express.static('./static'));
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/data', (req, res) => {
+    var quest = getQuestions.getQuestions();
+
+    res.send(JSON.stringify(quest));
+});
+
+app.get('/data', (req, res) => {
     var quest = getQuestions.getQuestions();
 
     res.send(JSON.stringify(quest));
