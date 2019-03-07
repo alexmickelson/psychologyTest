@@ -1,18 +1,14 @@
 $(function(){
-    class Question {
-        constructor(id, inquery, answers, correct){
-            this.id = id;
-            this.inquery = inquery;
-            this.answers = answers;
-            this.correct = correct;
-        }
-    }
     
     var questions;
     $.get('/data', function(data, status){
         questions = $.parseJSON(data);
     });
     //questions are populated by now
+
+    questions.each{
+        $('#change').append(q.inquery)
+    }
 
     var start = $.now()
     
